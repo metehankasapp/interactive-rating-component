@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Interactive rating component</title>
+  <link rel="stylesheet" href="./style.css">
+
+
+</head>
+
+<body>
+
+  <!-- Rating state start -->
+  <div class="card-container">
+
+    <div class="card-inner">
+      <div class="card-icon">
+        <img src="./images/icon-star.svg" alt="">
+      </div>
+      <h2 class="card-title">
+        How did we do?
+      </h2>
+
+      <span class="card-text">
+        Please let us know how we did with your support request. All feedback is appreciated
+        to help us improve our offering!
+      </span>
+
+
+      <ul class="card-sort">
+        <li class="card-sort-item ">
+          1
+        </li>
+        <li class="card-sort-item">
+          2
+        </li>
+        <li class="card-sort-item">
+          3
+        </li>
+        <li class="card-sort-item">
+          4
+        </li>
+        <li class="card-sort-item active">
+          5
+        </li>
+      </ul>
+
+      <button class="card-button">
+        Submit
+      </button>
+
+    </div>
+
+    <div class="thank-you">
+      <div class="ty-image">
+        <img src="./images/illustration-thank-you.svg" alt="">
+      </div>
+
+      <div class="thank-you-text">
+        You selected <span></span> out of 5
+      </div>
+
+      <h2 class="card-title">
+        Thank you!
+      </h2>
+
+      <p class="card-text">
+        We appreciate you taking the time to give a rating. If you ever need more support,
+        don’t hesitate to get in touch!
+      </p>
+    </div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.7.0.slim.js"
+    integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script>
+
+  <script>
+    //settind card sort number for review
+    var cardSortSelected = 5;
+
+    $('.card-sort-item').click(function () {
+      //on click remove active class from all
+      // add active clicked
+      // set selected review num
+
+      $('.card-sort-item').removeClass('active');
+
+      cardSortSelected = $(this).text();
+
+      $(this).addClass('active');
+      
+    })
+
+
+
+    $('.card-button').click(function () {
+      //on click show thank you
+      $('.thank-you').show('fast');
+      $('.thank-you').css('display', 'flex');
+      $('.card-inner').remove();
+      $('.thank-you-text span').text(cardSortSelected);
+
+    })
+  </script>
+</body>
+
+</html>
